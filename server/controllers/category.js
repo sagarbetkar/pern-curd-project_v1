@@ -38,7 +38,7 @@ exports.createCategory = (req,res) => {
 }
 
 exports.getCategory = (req, res) => {
-    Category.findAndCountAll()
+    Category.findAndCountAll({order: ['id']})
       .then((categories) => {
         if (categories.count == 0) {
           return res.json({
@@ -80,13 +80,7 @@ exports.getCategory = (req, res) => {
           });
         } else {
           return res.json({
-            data: {
-              id: category.id,
-              name: category.name,
-              email: category.email,
-              mobile: category.mobile,
-              designation: category.job_title
-            },
+            category,
             status: 200
           });
         }
@@ -102,10 +96,7 @@ exports.getCategory = (req, res) => {
   
   exports.updateCategory = (req, res) => {
     if (
-      req.body.name &&
-      req.body.email &&
-      req.body.mobile &&
-      req.body.job_title
+      req.body.name
     ) {
       Category.findOne({where: {id: req.params.id}})
         .then((category) => {
@@ -119,11 +110,9 @@ exports.getCategory = (req, res) => {
               .update(
                 {
                   name: req.body.name,
-                  email: req.body.email,
-                  mobile: req.body.mobile,
-                  job_title: req.body.job_title
+                  updatedAt: new Date()
                 },
-                {fields: ['name', 'email', 'mobile', 'job_title']}
+                {fields: ['name']}
               )
               .then(() => {
                 return res.json({

@@ -7,7 +7,7 @@ const Product = sequelize.define('product', {
     name: {type: DataTypes.STRING, allowNull: false},
     categoryId: {type: DataTypes.INTEGER, references: {
         model: 'Category',
-        key: 'id'
+        key: 'categoryId'
     }},
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE

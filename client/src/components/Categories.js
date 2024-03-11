@@ -39,7 +39,7 @@ function Categories() {
     }
     const handleDelete = async (id) => {
         setLoading(true);
-        const res = await axios.delete(`http://localhost:2611/api/v1/delete/${id}`);
+        const res = await axios.delete(`http://https://pern-curd-project-v1.onrender.com/api/v1/delete/${id}`);
         console.log(res);
         fetchCategories().then((res) => {
             setCategories(res.data)

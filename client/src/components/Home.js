@@ -48,7 +48,7 @@ function Home() {
     }
     const handleDelete = async (id) => {
         setLoading(true);
-        const res = await axios.delete(`http://localhost:2611/api/v1/deleteproduct/${id}`);
+        const res = await axios.delete(`http://https://pern-curd-project-v1.onrender.com/api/v1/deleteproduct/${id}`);
         console.log(res);
         fetchProducts(currentPage).then((res) => {
             setCount(res.products.count);

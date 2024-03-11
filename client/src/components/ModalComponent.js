@@ -28,7 +28,7 @@ export default function ModalComponent({show, handleClose, details}) {
         };
         if(details.id) {
             axios
-            .put(`http://localhost:2611/api/v1/updateProduct/${details.id}`, data)
+            .put(`http://https://pern-curd-project-v1.onrender.com/api/v1/updateProduct/${details.id}`, data)
             .then((res) => {
                 console.log(res.data)
                 setFormData({productName: "", categoryId: ""});
@@ -38,7 +38,7 @@ export default function ModalComponent({show, handleClose, details}) {
             })
         } else {
             axios
-            .post('http://localhost:2611/api/v1/createProduct', data)
+            .post('http://https://pern-curd-project-v1.onrender.com/api/v1/createProduct', data)
             .then((res) => {
                 console.log(res.data)
                 setFormData({productName: "", categoryId: ""});

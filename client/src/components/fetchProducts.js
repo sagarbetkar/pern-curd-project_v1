@@ -1,5 +1,5 @@
 const fetchProducts = async (page = 1) => {
-    const apiRes = await fetch(`http://localhost:2611/api/v1/getAllProducts?page=${page}`);
+    const apiRes = await fetch(`http://https://pern-curd-project-v1.onrender.com/api/v1/getAllProducts?page=${page}`);
 
     if (!apiRes.ok) {
       throw new Error(`Product fetch not ok`);

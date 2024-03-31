@@ -6,6 +6,7 @@ import { Container, Spinner, Dropdown, ButtonGroup } from "react-bootstrap";
 import axios from "axios";
 import ModalComponent from "./ModalComponent";
 
+
 function Home() {
     const [products, setProducts] = useState([]);
     const [count, setCount] = useState(0);
@@ -28,7 +29,7 @@ function Home() {
         text: 'Category Name'
     },{
         dataField: '',
-        formatter: (cell, row, rowIndex, formatExtraData) => {
+        formatter: (cell, row) => {
             return (
                 <Dropdown as={ButtonGroup}>
                     <Dropdown.Toggle variant="primary" id="dropdown-basic"></Dropdown.Toggle>
@@ -48,7 +49,7 @@ function Home() {
     }
     const handleDelete = async (id) => {
         setLoading(true);
-        const res = await axios.delete(`http://https://pern-curd-project-v1.onrender.com/api/v1/deleteproduct/${id}`);
+        const res = await axios.delete(`https://pern-curd-project-v1.onrender.com/api/v1/deleteproduct/${id}`);
         console.log(res);
         fetchProducts(currentPage).then((res) => {
             setCount(res.products.count);
@@ -64,7 +65,7 @@ function Home() {
         paginationSize: count,    
         pageStartIndex: 1,
         alwaysShowAllBtns: false,
-        pageButtonRenderer: ({page, active, onPageChange}) => {
+        pageButtonRenderer: ({page, active}) => {
             const handleClick = (e) => {
                 e.preventDefault();
                 setCurrentPage(page);

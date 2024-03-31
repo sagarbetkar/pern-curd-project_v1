@@ -19,7 +19,7 @@ function Categories() {
         text: 'Category Name'
     },{
         dataField: '',
-        formatter: (cell, row, rowIndex, formatExtraData) => {
+        formatter: (cell, row) => {
             return (
                 <Dropdown as={ButtonGroup}>
                     <Dropdown.Toggle variant="primary" id="dropdown-basic"></Dropdown.Toggle>
@@ -39,7 +39,7 @@ function Categories() {
     }
     const handleDelete = async (id) => {
         setLoading(true);
-        const res = await axios.delete(`http://https://pern-curd-project-v1.onrender.com/api/v1/delete/${id}`);
+        const res = await axios.delete(`https://pern-curd-project-v1.onrender.com/api/v1/delete/${id}`);
         console.log(res);
         fetchCategories().then((res) => {
             setCategories(res.data)

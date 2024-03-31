@@ -18,7 +18,7 @@ export default function CategoryModal({show, handleClose, details}) {
         };
         if(details.id) {
             axios
-            .put(`http://https://pern-curd-project-v1.onrender.com/api/v1/update/${details.id}`, data)
+            .put(`https://pern-curd-project-v1.onrender.com/api/v1/update/${details.id}`, data)
             .then((res) => {
                 console.log(res.data)
                 setCategoryName("");
@@ -28,7 +28,7 @@ export default function CategoryModal({show, handleClose, details}) {
             })
         } else {
             axios
-            .post('http://https://pern-curd-project-v1.onrender.com/api/v1/create', data)
+            .post('https://pern-curd-project-v1.onrender.com/api/v1/create', data)
             .then((res) => {
                 console.log(res.data)
                 setCategoryName("");
